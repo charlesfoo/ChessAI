@@ -8,5 +8,5 @@ Run (with Tkinter GUI):
 `./chessAI.py`
 
 ![chessAI_GUI]
-(ChessAI/chessAI_GUI.png)
+(https://github.com/fzy1995/ChessAI/blob/master/chessAI_GUI.png)
 
