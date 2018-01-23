@@ -1,12 +1,28 @@
 # ChessAI
 
-Chess AI python app
+#### Author: **Foo Zhi Yuan**
 
-I decided to write a Chess AI program for fun. It turns out that writing a Chess program is not simple. Chess has 6 different pieces with very different moves (L-shape, diagonal, vertical, horizontal) and there are extremely large number of possible moves that can be made by player for each pieces. I first implemented this ChessAI using arrays of arrays. This is a naive way as the run time is simply too big since we will need to check for each square tiles until we found a colliding piece. I scrapped the whole thing and rewrite it using the concept of bitboards, and it works extremely well. Due to the large possible moves that can be made by player each turn, I decided to use Principal Variation Search/ Negascout, an "upgraded version of minimax with Alpha-Beta pruning" to find the best move. Principal Variation Search treats the first legal move as the best move and searches it thoroughly; for the remaning legal moves, Principal Variation Search does a quick search to ensure that it is lesser or equal (not better) to the first legal move. The AI takes an average of 5 seconds to choose the best move each turn.
+Being a Chess enthusiast, I decided to write a Chess AI program for fun. It turns out that writing a Chess program is not simple. Chess has 6 different pieces with very different moves (L-shape, diagonal, vertical, horizontal) and there are extremely large number of possible moves that can be made by player for each pieces. In addition to that, Chess has a lot of rules like en passant, castling and pawn promotion.
 
-Run (with Tkinter GUI):
+I first implemented this ChessAI using arrays of arrays. This is a naive way as the run time is simply too big. This is because for every piece, we will need to loop through all the square tile along its moves path until we found a colliding piece. This is extremely inefficient and for a game with such huge number of possible moves, this will severely limit the number of levels we can search. 
+
+I scrapped the whole thing and rewrite it using the concept of bitboards, and it works extremely well. Due to the large possible moves that can be made by player each turn, I decided to use Principal Variation Search/ Negascout, an "upgraded version of minimax with Alpha-Beta pruning" to find the best move. Unlike minimax with Alpha Beta pruning, Principal Variation Search always treat the first legal move as the best move and searches it thoroughly; as for the remaning legal moves, Principal Variation Search does a quick search using zero/null window search to ensure that it is lesser or equal (not better) to the first legal move. In order to reduce the number of researching the branches of the game tree, a good sorting function is extremely important. 
+
+The AI takes an average of 5 seconds to choose the best move each turn.
+
+### Run (with Tkinter GUI):
+
 `./chessAI.py`
 
-![chessAI_GUI]
-(https://github.com/fzy1995/ChessAI/blob/master/chessAI_GUI.png)
+![chessAI_GUI](https://github.com/fzy1995/ChessAI/blob/master/chessAI_GUI.png)
 
+
+### Run (on Console):
+`./chessAI_console.py`
+![chessAI_console](https://github.com/fzy1995/ChessAI/blob/master/chessAI_console.png)
+
+**Select player colour:** Type "white" or "black"
+
+**Make normal move:** <old X, old Y, new X, new Y>. For example: a1a8,a6a3
+
+**Make pawn promotion move:** <old X, old Y, newX, new Y, space, piece to promote>. For example: a7a8 Queen
