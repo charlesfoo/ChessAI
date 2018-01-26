@@ -4,7 +4,7 @@
 
 #### Author: **Foo Zhi Yuan**
 
-Being a Chess enthusiast, I decided to write a Chess AI program for fun. It turns out that writing a Chess program is not a trivial task. Chess has 6 different pieces with very different moves (L-shape, diagonal, vertical, horizontal) and there are extremely large number of possible moves that can be made by player for each pieces. In addition to that, Chess has a lot of rules like en passant, castling and pawn promotion.
+Being a Chess enthusiast, I decided to write a Chess playing bot program for fun. It turns out that writing a Chess program is not a trivial task. Chess has 6 different pieces with very different moves (L-shape, diagonal, vertical, horizontal) and there are extremely large number of possible moves that can be made by player for each pieces. In addition to that, Chess has a lot of rules like en passant, castling and pawn promotion.
 
 I first implemented this ChessAI using arrays of arrays. This is a naive way as the run time is simply too big. This is because for every piece, we will need to loop through all the square tiles along its moving path until we found a colliding piece. This is extremely inefficient and for a game with such huge number of possible moves, this will severely limit the number of levels we can search. 
 
